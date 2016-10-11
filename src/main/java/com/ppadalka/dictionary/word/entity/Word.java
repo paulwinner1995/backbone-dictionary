@@ -101,4 +101,9 @@ public class Word implements Serializable {
     public int hashCode() {
         return Objects.hash(value, language);
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

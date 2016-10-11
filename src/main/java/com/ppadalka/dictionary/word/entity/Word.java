@@ -24,12 +24,20 @@ public class Word implements Serializable {
     )
     @Column(name = "WORD_ID")
     private Long id;
+
     @Column(name = "VALUE")
     private String value;
+
     @Column(name = "LANGUAGE", nullable = false)
     @Convert(converter = LanguageConverter.class)
     private Language language;
-    // TODO: Should investigate how I can make mapping for this relation
+
+    @ManyToMany
+    @JoinTable(
+            name = "DICTIONARY",
+            joinColumns = @JoinColumn(name = "WORD_ID" , referencedColumnName = "WORD_ID"),
+            inverseJoinColumns = @JoinColumn(name = "TRANSLATION_ID", referencedColumnName = "WORD_ID")
+    )
     private List<Word> translation;
 
     public Word() {
@@ -79,9 +87,12 @@ public class Word implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
+
         if (!(obj instanceof Word))
             return false;
+
         Word otherWord = (Word) obj;
+
         return Objects.equals(value, otherWord.getValue()) &&
                 Objects.equals(language, otherWord.getLanguage());
     }

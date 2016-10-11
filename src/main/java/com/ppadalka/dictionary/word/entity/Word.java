@@ -33,6 +33,7 @@ public class Word implements Serializable {
     @Convert(converter = LanguageConverter.class)
     private Language language;
 
+    // TODO: Need to investigate how I can use cascade in this place
     @ManyToMany
     @JoinTable(
             name = "DICTIONARY",

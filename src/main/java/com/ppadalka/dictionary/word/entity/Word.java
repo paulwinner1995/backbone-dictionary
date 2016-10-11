@@ -5,6 +5,7 @@ import com.ppadalka.dictionary.word.entity.converter.LanguageConverter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -38,17 +39,17 @@ public class Word implements Serializable {
             joinColumns = @JoinColumn(name = "WORD_ID" , referencedColumnName = "WORD_ID"),
             inverseJoinColumns = @JoinColumn(name = "TRANSLATION_ID", referencedColumnName = "WORD_ID")
     )
-    private List<Word> translation;
+    private List<Word> translations;
 
     public Word() {
-        this.translation = new ArrayList<>();
+        this.translations = new ArrayList<>();
     }
 
-    public Word(String value, Language language, Word translation) {
-        super();
+    public Word(String value, Language language, Word translations) {
+        this();
         this.value = value;
         this.language = language;
-        this.translation.add(translation);
+        this.translations.add(translations);
     }
 
     public Long getId() {
@@ -76,11 +77,15 @@ public class Word implements Serializable {
     }
 
     public void addTranslation(Word translation) {
-        this.translation.add(translation);
+        this.translations.add(translation);
+    }
+
+    public void addAllTranslations(Collection<Word> translations) {
+        this.translations.addAll(translations);
     }
 
     public Stream<Word> getTranslationsStream() {
-        return this.translation.stream();
+        return this.translations.stream();
     }
 
     @Override

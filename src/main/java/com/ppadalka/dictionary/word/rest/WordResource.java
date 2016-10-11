@@ -1,6 +1,5 @@
 package com.ppadalka.dictionary.word.rest;
 
-import com.ppadalka.dictionary.word.entity.Language;
 import com.ppadalka.dictionary.word.service.WordService;
 import com.ppadalka.dictionary.word.view.WordView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/word")
+@RequestMapping(path = "/api/word")
 public class WordResource {
     private final WordService wordService;
 
@@ -31,7 +30,7 @@ public class WordResource {
     }
 
     @GetMapping
-    public Page<WordView> getPage(@RequestParam(value = "lang", required = false, defaultValue = "English") String language,
+    public Page<WordView> getPage(@RequestParam(value = "lang", required = false, defaultValue = "ENG") String language,
                                       Pageable pageable) {
         return wordService.findAll(pageable);
     }

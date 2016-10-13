@@ -1,10 +1,28 @@
 require.config({
+    baseUrl: 'src/scripts/',
+
     paths: {
-        underscore: 'libs/underscore',
-        backbone: 'libs/backbone'
+        jquery: '/libs/jquery-3.1.1',
+        underscore: '/libs/underscore',
+        backbone: '/libs/backbone'
+    },
+
+    shim: {
+        underscore: {
+            exports: '_'
+        },
+        backbone: {
+            deps: [
+                'underscore',
+                'jquery'
+            ],
+            exports: 'Backbone'
+        }
     }
 });
 
-require([], function () {
-    console.log('requireJS works');
+require([
+    'router/main.router'
+], function (AppRouter) {
+    new AppRouter();
 });

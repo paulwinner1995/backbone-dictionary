@@ -1,7 +1,8 @@
 'use strict';
 
 define(function (require) {
-    var Backbone = require('backbone');
+    var Backbone = require('backbone'),
+        DictionaryPageView = require('dictionary/view/dictionary.page.view');
 
     var AppRouter = Backbone.Router.extend({
 
@@ -10,11 +11,14 @@ define(function (require) {
         },
 
         initialize: function () {
+            this.parentElement = $('#page-content-wrapper');
+
             Backbone.history.start();
         },
 
         home: function () {
-            console.log('home page');
+            var view = new DictionaryPageView().render().$el;
+            this.parentElement.append(view);
         }
     });
 

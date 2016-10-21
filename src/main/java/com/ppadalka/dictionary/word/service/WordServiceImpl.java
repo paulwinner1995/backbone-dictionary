@@ -26,7 +26,8 @@ public class WordServiceImpl implements WordService {
     public WordServiceImpl(
             WordRepository wordRepository,
             WordConverter wordConverter,
-            WordViewConverter wordViewConverter) {
+            WordViewConverter wordViewConverter
+    ) {
         this.wordRepository = wordRepository;
         this.wordConverter = wordConverter;
         this.wordViewConverter = wordViewConverter;

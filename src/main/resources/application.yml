@@ -1,9 +1,3 @@
 spring:
-  jpa:
-    hibernate.ddl-auto: create
-    show-sql: false
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/dictionary
-    username: vipuser
-    password: vipuserpassw
+  profiles:
+    active: dev

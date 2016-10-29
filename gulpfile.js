@@ -14,3 +14,11 @@ gulp.task('dust-compile', function () {
         .pipe(dust({'config.amd': true}))
         .pipe(gulp.dest(TEMPLATE_DIST_PATH));
 });
+
+gulp.task('clean', function () {
+   // TODO: Should add logic for cleaning dist directory
+});
+
+gulp.task('default', function () {
+    gulp.start('dust-compile');
+});

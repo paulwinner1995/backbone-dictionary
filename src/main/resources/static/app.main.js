@@ -22,11 +22,11 @@ require.config({
         dust: {
             exports: 'dust'
         }
-
     },
 
     map: {
         '*': {
+            'dust.template': 'scripts/common/template/dust.template',
             'base.view': 'scripts/common/view/base.view',
 
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template'
@@ -34,8 +34,9 @@ require.config({
     }
 });
 
-require([
-    'scripts/router/main.router'
-], function (AppRouter) {
-    new AppRouter();
+require(['dust'], function(dust) {
+    window.dust = dust;
+    require(['scripts/router/main.router'], function(AppRouter) {
+        new AppRouter();
+    })
 });

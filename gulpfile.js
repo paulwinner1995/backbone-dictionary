@@ -1,5 +1,5 @@
-const gulp = require('gulp'),
-    dust = require('gulp-dust');
+const gulp = require('gulp');
+const dust = require('gulp-dust');
 
 const BASE_PATH = 'src/main/resources/static/';
 

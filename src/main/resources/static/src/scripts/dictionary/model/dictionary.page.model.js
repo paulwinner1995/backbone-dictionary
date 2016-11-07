@@ -6,6 +6,14 @@ define(function (require) {
 
     var DictionaryPage = Backbone.Collection.extend({
 
+        urlRoot: '/words',
+
+        model: WordModel,
+
+        first: true,
+
+        last: true,
+
         totalElements: 0,
 
         totalPages: 0,
@@ -20,12 +28,21 @@ define(function (require) {
             if (this.urlRoot == undefined)
                 throw new Error('urlRoot is not defined');
             else
-            // TODO: implement logic for fetch page from server
-                return ''
+                return this.urlRoot + '?page=' + this.number + '&size=' + this.size;
         },
 
         initialize: function (options) {
+            this.on('sync', this.onSync, this);
+        },
 
+        onSync: function (collection, responce, options) {
+            this.first = responce.first;
+            this.last = responce.last;
+            this.totalElements = responce.totalElements;
+            this.totalPages = responce.totalPages;
+            this.numberOfElements = responce.numberOfElements;
+            this.number = responce.number;
+            this.add(responce.content);
         },
 
         nextPage: function () {

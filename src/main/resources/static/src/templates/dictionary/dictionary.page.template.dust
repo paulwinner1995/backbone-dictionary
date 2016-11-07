@@ -6,21 +6,5 @@
         <th class="col-md-4">Actions</th>
     </tr>
     </thead>
-    <tbody>
-    <tr class="row">
-        <td class="col-md-4">John</td>
-        <td class="col-md-4">Doe</td>
-        <td class="col-md-4">john@example.com</td>
-    </tr>
-    <tr class="row">
-        <td class="col-md-4">Mary</td>
-        <td class="col-md-4">Moe</td>
-        <td class="col-md-4">mary@example.com</td>
-    </tr>
-    <tr class="row">
-        <td class="col-md-4">July</td>
-        <td class="col-md-4">Dooley</td>
-        <td class="col-md-4">july@example.com</td>
-    </tr>
-    </tbody>
+    <tbody id="table-content"></tbody>
 </table>

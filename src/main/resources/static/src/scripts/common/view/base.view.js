@@ -15,8 +15,7 @@ define(function (require) {
         },
 
         _renderModel: function () {
-            var model = this.model || {};
-            return model.toJSON();
+            return {};
         }
     });
 

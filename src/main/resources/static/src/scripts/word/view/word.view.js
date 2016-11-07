@@ -9,7 +9,11 @@ define(function (require) {
 
     var WordView = BaseView.extend({
 
-        template: 'word.template'
+        template: 'word.template',
+
+        _renderModel: function () {
+            return this.model.toJSON();
+        }
     });
 
     return WordView;

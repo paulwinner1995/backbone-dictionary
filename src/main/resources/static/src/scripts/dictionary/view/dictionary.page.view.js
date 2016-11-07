@@ -10,19 +10,27 @@ define(function (require) {
 
     var DictionaryPageView = BaseView.extend({
 
+        collection: new DictionaryPageModel,
+
         template: 'dictionary.page.template',
 
         initialize: function () {
-
+            this.collection.fetch();
+            this.listenTo(this.collection, 'update', this.render);
         },
 
-        _renderModel: function () {
-            return {};
+        render: function () {
+            BaseView.prototype.render.call(this);
+            this.collection.each(this._createView, this);
+            return this;
         },
 
-        events: {
+        _createView: function (model) {
+            var modelView = new WordView({model: model});
+            this.$el.find('#table-content').append(modelView.render().el);
+        },
 
-        }
+        events: {}
     });
 
     return DictionaryPageView;

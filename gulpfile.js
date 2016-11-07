@@ -12,7 +12,7 @@ const TEMPLATE_DIST_PATH = DIST_PATH + 'templates/';
 const SCRIPT_SRC_PATH = SRC_PATH + 'scripts/**/*.js';
 const SCRIPT_DIST_PATH = DIST_PATH + 'scripts/';
 
-gulp.task('dust-compile', function () {
+gulp.task('compile:template', function () {
     return gulp.src(TEMPLATE_SRC_PATH)
         .pipe(dust({'config.amd': true}))
         .pipe(gulp.dest(TEMPLATE_DIST_PATH));

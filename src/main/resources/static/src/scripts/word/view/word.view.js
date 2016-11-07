@@ -9,6 +9,10 @@ define(function (require) {
 
     var WordView = BaseView.extend({
 
+        tagName: 'tr',
+
+        className: 'row',
+
         template: 'word.template',
 
         _renderModel: function () {

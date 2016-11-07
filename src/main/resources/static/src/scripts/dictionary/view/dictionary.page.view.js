@@ -8,10 +8,6 @@ define(function (require) {
 
     var DictionaryPageView = BaseView.extend({
 
-        tagName: 'table',
-
-        className: 'table',
-
         template: 'dictionary.page.template',
 
         initialize: function () {

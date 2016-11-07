@@ -1,24 +1,26 @@
-<thead>
-<tr class="row">
-    <th class="col-md-4">Word</th>
-    <th class="col-md-4">Translation</th>
-    <th class="col-md-4">Actions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>john@example.com</td>
-</tr>
-<tr>
-    <td>Mary</td>
-    <td>Moe</td>
-    <td>mary@example.com</td>
-</tr>
-<tr>
-    <td>July</td>
-    <td>Dooley</td>
-    <td>july@example.com</td>
-</tr>
-</tbody>
+<table class="table">
+    <thead>
+    <tr class="row">
+        <th class="col-md-4">Word</th>
+        <th class="col-md-4">Translation</th>
+        <th class="col-md-4">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="row">
+        <td class="col-md-4">John</td>
+        <td class="col-md-4">Doe</td>
+        <td class="col-md-4">john@example.com</td>
+    </tr>
+    <tr class="row">
+        <td class="col-md-4">Mary</td>
+        <td class="col-md-4">Moe</td>
+        <td class="col-md-4">mary@example.com</td>
+    </tr>
+    <tr class="row">
+        <td class="col-md-4">July</td>
+        <td class="col-md-4">Dooley</td>
+        <td class="col-md-4">july@example.com</td>
+    </tr>
+    </tbody>
+</table>

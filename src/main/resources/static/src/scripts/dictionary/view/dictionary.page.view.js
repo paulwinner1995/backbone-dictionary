@@ -4,8 +4,7 @@ define(function (require) {
 
     require('dictionary.page.template');
 
-    var Backbone = require('backbone'),
-        BaseView = require('base.view');
+    var BaseView = require('base.view');
 
     var DictionaryPageView = BaseView.extend({
 

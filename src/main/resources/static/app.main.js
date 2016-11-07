@@ -29,7 +29,8 @@ require.config({
             'dust.template': 'scripts/common/template/dust.template',
             'base.view': 'scripts/common/view/base.view',
 
-            'dictionary.page.template': 'templates/dictionary/dictionary.page.template'
+            'dictionary.page.template': 'templates/dictionary/dictionary.page.template',
+            'word.template': 'templates/word/word.template'
         }
     }
 });

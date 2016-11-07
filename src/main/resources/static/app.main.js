@@ -33,8 +33,8 @@ require.config({
             'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template',
 
-            'word.model': 'scripts/word/word.model',
-            'word.view': 'scripts/word/word.view',
+            'word.model': 'scripts/word/model/word.model',
+            'word.view': 'scripts/word/view/word.view',
             'word.template': 'templates/word/word.template'
         }
     }

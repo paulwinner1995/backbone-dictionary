@@ -2,7 +2,7 @@
 
 define(function (require) {
     var Backbone = require('backbone'),
-        DictionaryPageView = require('scripts/dictionary/view/dictionary.page.view');
+        DictionaryPageView = require('dictionary.page.view');
 
     var AppRouter = Backbone.Router.extend({
 

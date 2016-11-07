@@ -29,7 +29,12 @@ require.config({
             'dust.template': 'scripts/common/template/dust.template',
             'base.view': 'scripts/common/view/base.view',
 
+            'dictionary.page.model': 'scripts/dictionary/model/dictionary.page.model',
+            'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template',
+
+            'word.model': 'scripts/word/word.model',
+            'word.view': 'scripts/word/word.view',
             'word.template': 'templates/word/word.template'
         }
     }

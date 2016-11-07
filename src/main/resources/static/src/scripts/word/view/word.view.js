@@ -4,7 +4,8 @@ define(function (require) {
 
     require('word.template');
 
-    var BaseView = require('base.view');
+    var BaseView = require('base.view'),
+        WordModel = require('word.model');
 
     var WordView = BaseView.extend({
 

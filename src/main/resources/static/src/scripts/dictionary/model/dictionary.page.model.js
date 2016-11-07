@@ -1,7 +1,8 @@
 'use strict';
 
 define(function (require) {
-    var Backbone = require('backbone');
+    var Backbone = require('backbone'),
+        WordModel = require('word.model');
 
     var DictionaryPage = Backbone.Collection.extend({
 
@@ -31,7 +32,15 @@ define(function (require) {
 
         },
 
+        lastPage: function () {
+
+        },
+
         prevPage: function () {
+
+        },
+
+        firstPage: function () {
 
         }
     });

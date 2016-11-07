@@ -35,9 +35,7 @@ require.config({
     }
 });
 
-require(['dust'], function(dust) {
+require(['dust'], (dust) => {
     window.dust = dust;
-    require(['scripts/router/main.router'], function(AppRouter) {
-        new AppRouter();
-    })
+    require(['scripts/router/main.router'], (AppRouter) => new AppRouter())
 });

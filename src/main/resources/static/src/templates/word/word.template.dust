@@ -1,9 +1,12 @@
-<td class="col-md-4">{value}</td>
-<td class="col-md-4">{transcription}</td>
-<td class="col-md-4">
+<td class="col-md-3">{value}</td>
+<td class="col-md-3">{transcription}</td>
+<td class="col-md-3">
     <ul>
         {#translations}
             <li>{value}</li>
         {/translations}
     </ul>
+</td>
+<td class="col-md-3">
+    <button class="btn btn-primary" type="button">Exit</button>
 </td>

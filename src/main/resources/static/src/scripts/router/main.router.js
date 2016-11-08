@@ -2,6 +2,7 @@
 
 define(function (require) {
     var Backbone = require('backbone'),
+        DictionaryPageModel = require('dictionary.page.model'),
         DictionaryPageView = require('dictionary.page.view');
 
     var AppRouter = Backbone.Router.extend({
@@ -17,7 +18,7 @@ define(function (require) {
         },
 
         home: function () {
-            var view = new DictionaryPageView().render().$el;
+            var view = new DictionaryPageView({model: new DictionaryPageModel}).render().$el;
             this.parentElement.append(view);
         }
     });

@@ -27,6 +27,7 @@ require.config({
     map: {
         '*': {
             'dust.template': 'scripts/common/template/dust.template',
+            'base.page': 'scripts/common/model/base.page',
             'base.view': 'scripts/common/view/base.view',
 
             'dictionary.page.model': 'scripts/dictionary/model/dictionary.page.model',

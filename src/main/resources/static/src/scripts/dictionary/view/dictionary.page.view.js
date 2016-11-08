@@ -10,18 +10,17 @@ define(function (require) {
 
     var DictionaryPageView = BaseView.extend({
 
-        collection: new DictionaryPageModel,
+        model: DictionaryPageModel,
 
         template: 'dictionary.page.template',
 
         initialize: function () {
-            this.collection.fetch();
-            this.listenTo(this.collection, 'update', this.render);
+            this.listenTo(this.model.collection, 'update', this.render);
         },
 
         render: function () {
             BaseView.prototype.render.call(this);
-            this.collection.each(this._createView, this);
+            this.model.collection.each(this._createView, this);
             return this;
         },
 

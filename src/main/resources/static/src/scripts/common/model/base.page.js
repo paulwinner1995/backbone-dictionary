@@ -67,7 +67,7 @@ define(function (require) {
 
         lastPage: function () {
             if (this._hasNext()) {
-                this.set('number', this.get('totalPages'));
+                this.set('number', this.get('totalPages') - 1);
             }
         },
 

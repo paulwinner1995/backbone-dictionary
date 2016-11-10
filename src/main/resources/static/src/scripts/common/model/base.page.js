@@ -18,7 +18,7 @@ define(function (require) {
 
             numberOfElements: 0,
 
-            size: 20,
+            size: 5,
 
             number: 0,
 
@@ -47,6 +47,7 @@ define(function (require) {
         },
 
         onPageChange: function (model, value, options) {
+            this.collection.reset();
             this.fetch(options);
         },
 

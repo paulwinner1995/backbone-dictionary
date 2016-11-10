@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "gulp": "~3.9.1",
-    "gulp-dust": "~3.0.0"
+    "gulp-dust": "~3.0.0",
+    "gulp-babel": "~6.1.2",
+    "babel-preset-es2015": "~6.18.0"
   }
 }

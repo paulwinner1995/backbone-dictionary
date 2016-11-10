@@ -1,23 +1,19 @@
-'use strict';
+import dust from 'dust';
 
-define(function (require) {
-    const dust = require('dust');
+var Template = {
 
-    var Template = {
+    renderTemplate: function (templateName, data) {
+        var html = {};
+        dust.render(templateName, data, function (error, renderedHtml) {
+            if (error) {
+                throw new Error(error);
+            }
 
-        renderTemplate: function (templateName, data) {
-            var html = {};
-            dust.render(templateName, data, function (error, renderedHtml) {
-                if (error) {
-                    throw new Error(error);
-                }
+            html = renderedHtml;
+        });
 
-                html = renderedHtml;
-            });
+        return html;
+    }
+};
 
-            return html;
-        }
-    };
-
-    return Template;
-});
+export default Template;

@@ -1,12 +1,5 @@
-'use strict';
+import Backbone from 'backbone';
 
-define(function (require) {
+var WordModel = Backbone.Model.extend({});
 
-    var Backbone = require('backbone');
-
-    var WordModel = Backbone.Model.extend({
-
-    });
-
-    return WordModel;
-});
+export default WordModel;

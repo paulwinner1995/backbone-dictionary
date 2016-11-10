@@ -1,61 +1,55 @@
-'use strict';
+import BaseView from 'base.view';
+import DictionaryPageModel from 'dictionary.page.model';
+import WordView from 'word.view';
+import {} from 'dictionary.page.template';
 
-define(function (require) {
+var DictionaryPageView = BaseView.extend({
 
-    require('dictionary.page.template');
+    model: DictionaryPageModel,
 
-    var BaseView = require('base.view'),
-        DictionaryPageModel = require('dictionary.page.model'),
-        WordView = require('word.view');
+    template: 'dictionary.page.template',
 
-    var DictionaryPageView = BaseView.extend({
+    events: {
+        'click #first': 'firstPage',
+        'click #prev': 'prevPage',
+        'click #next': 'nextPage',
+        'click #last': 'lastPage'
+    },
 
-        model: DictionaryPageModel,
+    initialize: function () {
+        this.listenTo(this.model.collection, 'update', this.render);
+    },
 
-        template: 'dictionary.page.template',
+    render: function () {
+        BaseView.prototype.render.call(this);
+        this.model.collection.each(this._createView, this);
+        return this;
+    },
 
-        events: {
-            'click #first': 'firstPage',
-            'click #prev': 'prevPage',
-            'click #next': 'nextPage',
-            'click #last': 'lastPage'
-        },
+    _renderModel: function () {
+        return this.model.toJSON();
+    },
 
-        initialize: function () {
-            this.listenTo(this.model.collection, 'update', this.render);
-        },
+    _createView: function (model) {
+        var modelView = new WordView({model: model});
+        this.$el.find('#table-content').append(modelView.render().el);
+    },
 
-        render: function () {
-            BaseView.prototype.render.call(this);
-            this.model.collection.each(this._createView, this);
-            return this;
-        },
+    firstPage: function () {
+        this.model.firstPage();
+    },
 
-        _renderModel: function () {
-            return this.model.toJSON();
-        },
+    prevPage: function () {
+        this.model.prevPage();
+    },
 
-        _createView: function (model) {
-            var modelView = new WordView({model: model});
-            this.$el.find('#table-content').append(modelView.render().el);
-        },
+    nextPage: function () {
+        this.model.nextPage();
+    },
 
-        firstPage: function () {
-            this.model.firstPage();
-        },
-
-        prevPage: function () {
-            this.model.prevPage();
-        },
-
-        nextPage: function () {
-            this.model.nextPage();
-        },
-
-        lastPage: function () {
-            this.model.lastPage();
-        }
-    });
-
-    return DictionaryPageView;
+    lastPage: function () {
+        this.model.lastPage();
+    }
 });
+
+export default DictionaryPageView;

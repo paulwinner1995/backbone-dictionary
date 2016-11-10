@@ -1,23 +1,20 @@
-'use strict';
+import Backbone from 'backbone';
+import template from 'dust.template';
 
-define(function (require) {
-    var Backbone = require('backbone'),
-        template = require('dust.template');
+var BaseView = Backbone.View.extend({
 
-    var BaseView = Backbone.View.extend({
+    render: function () {
+        if (this.template === undefined)
+            throw new Error('template is not defined');
 
-        template: '',
+        var html = template.renderTemplate(this.template, this._renderModel());
+        this.$el.html(html);
+        return this;
+    },
 
-        render: function () {
-            var html = template.renderTemplate(this.template, this._renderModel());
-            this.$el.html(html);
-            return this;
-        },
-
-        _renderModel: function () {
-            return {};
-        }
-    });
-
-    return BaseView;
+    _renderModel: function () {
+        return {};
+    }
 });
+
+export default BaseView;

@@ -1,24 +1,20 @@
-'use strict';
+import BaseView from 'base.view';
+import WordModel from 'word.model';
+import {} from 'word.template';
 
-define(function (require) {
+var WordView = BaseView.extend({
 
-    require('word.template');
+    tagName: 'tr',
 
-    var BaseView = require('base.view'),
-        WordModel = require('word.model');
+    className: 'row',
 
-    var WordView = BaseView.extend({
+    model: WordModel,
 
-        tagName: 'tr',
+    template: 'word.template',
 
-        className: 'row',
-
-        template: 'word.template',
-
-        _renderModel: function () {
-            return this.model.toJSON();
-        }
-    });
-
-    return WordView;
+    _renderModel: function () {
+        return this.model.toJSON();
+    }
 });
+
+export default WordView;

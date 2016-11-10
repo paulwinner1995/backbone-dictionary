@@ -1,4 +1,4 @@
-require.config({
+requirejs.config({
     baseUrl: 'dist/',
 
     paths: {
@@ -26,9 +26,12 @@ require.config({
 
     map: {
         '*': {
+            'app.main': 'scripts/app.main',
             'dust.template': 'scripts/common/template/dust.template',
             'base.page': 'scripts/common/model/base.page',
             'base.view': 'scripts/common/view/base.view',
+
+            'main.router': 'scripts/router/main.router',
 
             'dictionary.page.model': 'scripts/dictionary/model/dictionary.page.model',
             'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
@@ -41,7 +44,4 @@ require.config({
     }
 });
 
-require(['dust'], (dust) => {
-    window.dust = dust;
-    require(['scripts/router/main.router'], (AppRouter) => new AppRouter())
-});
+requirejs(['app.main']);

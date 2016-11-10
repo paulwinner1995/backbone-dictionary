@@ -1,20 +1,16 @@
-'use strict';
+import BasePage from 'base.page';
+import WordModel from 'word.model';
 
-define(function (require) {
-    var BasePage = require('base.page'),
-        WordModel = require('word.model');
+var DictionaryPage = BasePage.extend({
 
-    var DictionaryPage = BasePage.extend({
+    urlRoot: '/words',
 
-        urlRoot: '/words',
+    model: WordModel,
 
-        model: WordModel,
-
-        initialize: function (options) {
-            BasePage.prototype.initialize.call(this, options);
-            this.fetch();
-        }
-    });
-
-    return DictionaryPage;
+    initialize: function (options) {
+        BasePage.prototype.initialize.call(this, options);
+        this.fetch();
+    }
 });
+
+export default DictionaryPage;

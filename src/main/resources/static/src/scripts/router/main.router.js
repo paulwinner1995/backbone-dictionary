@@ -1,27 +1,24 @@
-'use strict';
+import $ from 'jquery';
+import Backbone from 'backbone';
+import DictionaryPageModel from 'dictionary.page.model';
+import DictionaryPageView from 'dictionary.page.view';
 
-define(function (require) {
-    var Backbone = require('backbone'),
-        DictionaryPageModel = require('dictionary.page.model'),
-        DictionaryPageView = require('dictionary.page.view');
+var AppRouter = Backbone.Router.extend({
 
-    var AppRouter = Backbone.Router.extend({
+    routes: {
+        '': 'home'
+    },
 
-        routes: {
-            '': 'home'
-        },
+    initialize: function () {
+        this.parentElement = $('#page-content-wrapper');
 
-        initialize: function () {
-            this.parentElement = $('#page-content-wrapper');
+        Backbone.history.start();
+    },
 
-            Backbone.history.start();
-        },
-
-        home: function () {
-            var view = new DictionaryPageView({model: new DictionaryPageModel}).render().$el;
-            this.parentElement.append(view);
-        }
-    });
-
-    return AppRouter;
+    home: function () {
+        var view = new DictionaryPageView({model: new DictionaryPageModel}).render().$el;
+        this.parentElement.append(view);
+    }
 });
+
+export default AppRouter;

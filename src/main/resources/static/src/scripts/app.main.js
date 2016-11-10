@@ -1,5 +1,5 @@
-import Dust from 'dust';
+import dust from 'dust';
 import AppRouter from 'scripts/router/main.router';
 
-window.dust = Dust;
+window.dust = dust;
 new AppRouter;

@@ -1,13 +1,31 @@
+<div class="row">
+    <div class="col-md-5">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-offset-5 col-md-2">
+        <a class="btn btn-success" href="#">
+            <span>Add</span>
+        </a>
+    </div>
+</div>
+<hr>
+
 <table class="table table-hover">
     <thead>
     <tr class="row">
-        <th class="col-md-4">Word</th>
-        <th class="col-md-4">Translation</th>
-        <th class="col-md-4">Actions</th>
+        <th class="col-md-5">Word</th>
+        <th class="col-md-5">Translation</th>
+        <th class="col-md-2">Actions</th>
     </tr>
     </thead>
     <tbody id="table-content"></tbody>
 </table>
+
 <nav class="row">
     <div class="col-md-6 text-left">
         <span class="pagination">Showing {from} to {to} of {totalElements} entries</span>

@@ -11,7 +11,7 @@
 </table>
 <nav class="row">
     <div class="col-md-6 text-left">
-        <span class="pagination">Showing to {numberOfElements} of {totalElements} entries</span>
+        <span class="pagination">Showing {from} to {to} of {totalElements} entries</span>
     </div>
     <div class="col-md-6 text-right">
         <ul class="pagination">

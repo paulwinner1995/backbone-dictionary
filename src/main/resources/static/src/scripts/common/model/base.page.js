@@ -12,6 +12,10 @@ define(function (require) {
 
             last: true,
 
+            from: 0,
+
+            to: 0,
+
             totalElements: 0,
 
             totalPages: 0,
@@ -43,6 +47,9 @@ define(function (require) {
         },
 
         onSync: function (model, request, options) {
+            this.set('from', this._startFrom());
+            this.set('to', this._endTo());
+
             this.collection.add(request.content);
         },
 
@@ -90,6 +97,20 @@ define(function (require) {
             var size = this.get('size');
 
             return `?page=${page}&size=${size}`;
+        },
+        
+        _startFrom: function () {
+            var number = this.get('number');
+            var size = this.get('size');
+            
+            return (number * size) + 1;
+        },
+        
+        _endTo: function () {
+            var from = this._startFrom();
+            var numberOfElements = this.get('numberOfElements');
+
+            return from + numberOfElements - 1;
         }
     });
 

@@ -29,7 +29,7 @@ define(function (require) {
             if (this.urlRoot == undefined)
                 throw new Error('urlRoot is not defined');
             else
-                return this.urlRoot + '?page=' + this.number + '&size=' + this.size;
+                return this.urlRoot + this._buildPageRequest();
         },
 
         initialize: function (options) {
@@ -39,11 +39,15 @@ define(function (require) {
             this.collection = new Content;
 
             this.on('sync', this.onSync, this);
-            this.on('change:number', this.fetch, this);
+            this.on('change:number', this.onPageChange, this);
         },
 
         onSync: function (model, request, options) {
             this.collection.add(request.content);
+        },
+
+        onPageChange: function (model, value, options) {
+            this.fetch(options);
         },
 
         nextPage: function () {
@@ -78,6 +82,13 @@ define(function (require) {
 
         _hasPrev: function () {
             return !this.get('first');
+        },
+
+        _buildPageRequest: function () {
+            var page = this.get('number');
+            var size = this.get('size');
+
+            return `?page=${page}&size=${size}`;
         }
     });
 

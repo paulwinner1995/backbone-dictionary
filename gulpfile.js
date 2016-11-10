@@ -27,4 +27,9 @@ gulp.task('babel:scripts', function () {
         .pipe(gulp.dest(SCRIPT_DIST_PATH));
 });
 
+gulp.task('copy:fonts', function () {
+   return gulp.src(BASE_PATH  + 'libs/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
+       .pipe(gulp.dest(BASE_PATH  + 'dist/fonts/'));
+});
+
 gulp.task('default', ['compile:templates', 'babel:scripts']);

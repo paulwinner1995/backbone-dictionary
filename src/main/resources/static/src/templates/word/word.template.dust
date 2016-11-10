@@ -8,6 +8,6 @@
 </td>
 <td class="col-md-2">
     <button class="btn btn-primary" type="button">
-        <span>Edit</span>
+        <span>Edit <span class="glyphicon glyphicon-pencil"></span></span>
     </button>
 </td>

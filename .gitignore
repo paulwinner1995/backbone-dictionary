@@ -2,5 +2,6 @@
 /node_modules
 /src/main/resources/static/libs
 /src/main/resources/static/dist/**/*.js
+/src/main/resources/static/dist/fonts/
 /target
 dictionary.iml

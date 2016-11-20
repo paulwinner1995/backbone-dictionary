@@ -6,7 +6,9 @@ import DictionaryPageView from 'dictionary.page.view';
 var AppRouter = Backbone.Router.extend({
 
     routes: {
-        '': 'home'
+        '': 'onHomeRoute',
+        'words': 'onWordsRoute',
+        'word/add': 'onWordAddRoute'
     },
 
     initialize: function () {
@@ -15,9 +17,17 @@ var AppRouter = Backbone.Router.extend({
         Backbone.history.start();
     },
 
-    home: function () {
+    onHomeRoute: function () {
+        this.navigate('words');
+    },
+
+    onWordsRoute: function () {
         var view = new DictionaryPageView({model: new DictionaryPageModel}).render().$el;
         this.parentElement.append(view);
+    },
+
+    onWordAddRoute: function () {
+        console.log('add word page');
     }
 });
 

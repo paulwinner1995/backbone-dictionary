@@ -23,13 +23,23 @@
     </div>
 </nav>
 
-<div class="container-fluid text-center">
+<div id="background-carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active" style="background-image:url(http://placehold.it/1600x800/)"></div>
+            <div class="item" style="background-image:url(http://placehold.it/1600x800/)"></div>
+            <div class="item" style="background-image:url(http://placehold.it/1600x800/)"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-center" id="content-wrapper">
     <div class="row content">
         <div class="col-sm-2 sidenav"></div>
         <div class="col-sm-8 text-left">
             <h1>Dictionary</h1>
             <hr>
-            <div class="container-fluid" id="page-content-wrapper">
+            <div class="container-fluid well" id="page-content-wrapper">
                 <!-- Place where will be render different views -->
             </div>
         </div>

@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const dust = require('gulp-dust');
 const babel = require('gulp-babel');
+const less = require('gulp-less');
 
 const BASE_PATH = 'src/main/resources/static/';
 
@@ -12,6 +13,9 @@ const TEMPLATE_DIST_PATH = DIST_PATH + 'templates/';
 
 const SCRIPT_SRC_PATH = SRC_PATH + 'scripts/**/*.js';
 const SCRIPT_DIST_PATH = DIST_PATH + 'scripts/';
+
+const STYLE_LESS_PATH = SRC_PATH + 'less/**/*.less';
+const STYLE_CSS_PATH = DIST_PATH + 'css/';
 
 gulp.task('compile:templates', function() {
     return gulp.src(TEMPLATE_SRC_PATH)
@@ -32,4 +36,15 @@ gulp.task('copy:fonts', function () {
        .pipe(gulp.dest(BASE_PATH  + 'dist/fonts/'));
 });
 
-gulp.task('default', ['compile:templates', 'babel:scripts']);
+gulp.task('compile:less', function () {
+   return gulp.src(STYLE_LESS_PATH)
+       .pipe(less())
+       .pipe(gulp.dest(STYLE_CSS_PATH));
+});
+
+gulp.task('default', [
+    'babel:scripts',
+    'compile:templates',
+    'compile:less',
+    'copy:fonts'
+]);

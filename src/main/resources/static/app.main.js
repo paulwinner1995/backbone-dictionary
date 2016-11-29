@@ -44,4 +44,4 @@ requirejs.config({
     }
 });
 
-requirejs(['app.main']);
+require(['dust'], function (dust) { window.dust = dust; require(['app.main']); });

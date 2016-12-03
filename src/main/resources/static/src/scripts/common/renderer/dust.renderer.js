@@ -1,8 +1,8 @@
 import dust from 'dust';
 
-var Template = {
+var DustRenderer = {
 
-    renderTemplate: function (templateName, data) {
+    render: function (templateName, data) {
         var html = {};
         dust.render(templateName, data, function (error, renderedHtml) {
             if (error) {
@@ -16,4 +16,4 @@ var Template = {
     }
 };
 
-export default Template;
+export default DustRenderer;

@@ -27,7 +27,7 @@ requirejs.config({
     map: {
         '*': {
             'app.main': 'scripts/app.main',
-            'dust.template': 'scripts/common/template/dust.template',
+            'dust.renderer': 'scripts/common/renderer/dust.renderer',
             'base.page': 'scripts/common/model/base.page',
             'base.view': 'scripts/common/view/base.view',
 

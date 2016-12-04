@@ -32,7 +32,7 @@ var DictionaryPageView = BaseView.extend({
 
     _createView: function (model) {
         var modelView = new WordView({model: model});
-        this.$el.find('#table-content').append(modelView.render().el);
+        this.$('#table-content').append(modelView.render().el);
     },
 
     firstPage: function () {

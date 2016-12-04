@@ -5,6 +5,7 @@ requirejs.config({
         jquery: '/libs/jQuery/dist/jquery.min',
         underscore: '/libs/underscore/underscore-min',
         backbone: '/libs/backbone/backbone-min',
+        paginator: '/libs/backbone.paginator/lib/backbone.paginator.min',
         dust: '/libs/dustjs-linkedin/dist/dust-full.min'
     },
 

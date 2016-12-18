@@ -4,22 +4,16 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public enum Language {
-    RUS(1, "Russian"), ENG(2, "English");
+    RUS(1), ENG(2);
 
     private Integer id;
-    private String name;
 
-    Language(Integer id, String name) {
+    Language(Integer id) {
         this.id = id;
-        this.name = name;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public static Language valueOf(Integer id) {

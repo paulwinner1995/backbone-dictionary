@@ -15,10 +15,10 @@ public class WordViewConverterImpl implements WordViewConverter {
     public WordView convert(Word word) {
         Long id = word.getId();
         String value = word.getValue();
-        String language = word.getLanguage().getName();
+        String language = word.getLanguage().name();
         List<TranslationView> translations = word.getTranslationsStream()
                 .map(translation ->
-                        new TranslationView(translation.getValue(), translation.getLanguage().getName()))
+                        new TranslationView(translation.getValue(), translation.getLanguage().name()))
                 .collect(toList());
         return new WordView(id, value, language, translations);
     }

@@ -1,0 +1,5 @@
+CREATE TABLE public.word (
+  word_id BIGINT PRIMARY KEY NOT NULL,
+  language INTEGER NOT NULL,
+  value CHARACTER VARYING(255)
+);

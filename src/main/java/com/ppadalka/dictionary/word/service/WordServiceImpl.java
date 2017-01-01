@@ -44,6 +44,8 @@ public class WordServiceImpl implements WordService {
         return wordViewConverter.convert(word);
     }
 
+    // TODO: 1. Should refactor this method
+    // TODO: 2. Should add transactions handling
     @Override
     public WordView create(WordView wordView) {
         Word newWord = save(wordView);

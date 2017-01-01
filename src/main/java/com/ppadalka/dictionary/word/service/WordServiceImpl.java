@@ -73,7 +73,8 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public Page<WordView> findAll(Pageable pageable) {
-        return wordRepository.findAll(pageable).map(wordViewConverter);
+    public Page<WordView> findAll(String word, Language language, Pageable pageable) {
+        return wordRepository.findAll(pageable)
+                .map(wordViewConverter);
     }
 }

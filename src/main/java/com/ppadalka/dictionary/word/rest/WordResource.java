@@ -43,8 +43,7 @@ public class WordResource {
     public Page<WordView> getPage(@RequestParam(value = "word", required = false, defaultValue = EMPTY) String word,
                                   @RequestParam(value = "lang", required = false, defaultValue = "ENG") String lang,
                                   Pageable pageable) {
-        Language language = Language.valueOf(lang);
-        return wordService.findAll(word, language, pageable);
+        return wordService.findAll(word, Language.valueOf(lang), pageable);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

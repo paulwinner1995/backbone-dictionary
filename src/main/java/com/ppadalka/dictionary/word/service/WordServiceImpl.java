@@ -8,6 +8,8 @@ import com.ppadalka.dictionary.word.view.WordView;
 import com.ppadalka.dictionary.word.view.converter.WordConverter;
 import com.ppadalka.dictionary.word.view.converter.WordViewConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.springframework.data.domain.ExampleMatcher.StringMatcher.CONTAINING;
 
 @Service
 public class WordServiceImpl implements WordService {
@@ -74,7 +78,16 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public Page<WordView> findAll(String word, Language language, Pageable pageable) {
-        return wordRepository.findAll(pageable)
+        Word probe = new Word(word, language);
+
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withStringMatcher(CONTAINING)
+                .withIgnorePaths("id", "translations")
+                .withIgnoreCase("value");
+
+        Example<Word> example = Example.of(probe, matcher);
+
+        return wordRepository.findAll(example, pageable)
                 .map(wordViewConverter);
     }
 }

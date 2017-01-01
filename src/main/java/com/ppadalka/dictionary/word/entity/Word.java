@@ -46,11 +46,15 @@ public class Word implements Serializable {
         this.translations = new ArrayList<>();
     }
 
-    public Word(String value, Language language, Word translations) {
+    public Word(String value, Language language) {
         this();
         this.value = value;
         this.language = language;
-        this.translations.add(translations);
+    }
+
+    public Word(String value, Language language, Word translation) {
+        this(value, language);
+        this.translations.add(translation);
     }
 
     public Long getId() {

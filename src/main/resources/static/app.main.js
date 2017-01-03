@@ -5,7 +5,7 @@ requirejs.config({
         'jquery': '/libs/jQuery/dist/jquery.min',
         'underscore': '/libs/underscore/underscore-min',
         'backbone': '/libs/backbone/backbone-min',
-        'paginator': '/libs/backbone.paginator/lib/backbone.paginator.min',
+        'backbone.paginator': '/libs/backbone.paginator/lib/backbone.paginator.min',
         'dust': '/libs/dustjs-linkedin/dist/dust-full.min'
     },
 
@@ -30,11 +30,13 @@ requirejs.config({
             'app.main': 'scripts/app.main',
             'dust.renderer': 'scripts/common/renderer/dust.renderer',
             'base.page': 'scripts/common/model/base.page',
+            'base.pageable.collection': 'scripts/common/collection/base.pageable.collection',
             'base.view': 'scripts/common/view/base.view',
 
             'main.router': 'scripts/router/main.router',
 
             'dictionary.page.model': 'scripts/dictionary/model/dictionary.page.model',
+            'dictionary.pageable.collection': 'scripts/dictionary/collection/dictionary.pageable.collection',
             'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
             'dictionary.pagination.control.view': 'scripts/dictionary/view/dictionary.pagination.control.view',
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template',

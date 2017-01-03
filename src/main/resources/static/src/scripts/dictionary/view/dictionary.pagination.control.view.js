@@ -1,12 +1,12 @@
 import BaseView from 'base.view';
-import DictionaryPageModel from 'dictionary.page.model';
+import DictionaryPageableCollection from 'dictionary.pageable.collection';
 import 'dictionary.pagination.control.template';
 
 var DictionaryPaginationControlView = BaseView.extend({
     
     template: 'dictionary.pagination.control.template',
 
-    model: DictionaryPageModel,
+    collection: DictionaryPageableCollection,
     
     events: {
         'click #first': 'onFirstPage',
@@ -16,23 +16,23 @@ var DictionaryPaginationControlView = BaseView.extend({
     },
 
     _renderModel: function () {
-        return this.model.toJSON();
+        return this.collection.state;
     },
     
     onFirstPage: function () {
-        this.model.firstPage();
+        this.collection.getFirstPage();
     },
     
     onPreviousPage: function () {
-        this.model.prevPage();
+        this.collection.getPreviousPage();
     },
     
     onNextPage: function () {
-        this.model.nextPage();
+        this.collection.getNextPage();
     },
     
     onLastPage: function () {
-        this.model.lastPage();
+        this.collection.getLastPage();
     }
 });
 

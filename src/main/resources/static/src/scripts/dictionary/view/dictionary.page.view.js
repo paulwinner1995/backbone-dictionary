@@ -1,23 +1,24 @@
 import BaseView from 'base.view';
-import DictionaryPageModel from 'dictionary.page.model';
+import DictionaryPageableCollection from 'dictionary.pageable.collection';
 import WordView from 'word.view';
 import DictionaryPaginationControlView from 'dictionary.pagination.control.view';
+import _ from 'underscore';
 import 'dictionary.page.template';
 
 var DictionaryPageView = BaseView.extend({
 
-    model: DictionaryPageModel,
+    collection: DictionaryPageableCollection,
 
     template: 'dictionary.page.template',
 
     initialize: function () {
-        this.paginationControlView = new DictionaryPaginationControlView({model: this.model});
-        this.listenTo(this.model.collection, 'update', this.render);
+        this.paginationControlView = new DictionaryPaginationControlView({collection: this.collection});
+        this.listenTo(this.collection, 'update', this.render);
     },
 
     render: function () {
         BaseView.prototype.render.call(this);
-        this.model.collection.each(this._createView, this);
+        _.each(this.collection.models, this._createView, this);
 
         var childSelector = this.$el.find('#paginationControls');
         this.paginationControlView.setElement(childSelector).render();
@@ -26,7 +27,7 @@ var DictionaryPageView = BaseView.extend({
     },
 
     _renderModel: function () {
-        return this.model.toJSON();
+        return this.collection.toJSON();
     },
 
     _createView: function (model) {

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
-import DictionaryPageModel from 'dictionary.page.model';
+import DictionaryPageableCollection from 'dictionary.pageable.collection';
 import DictionaryPageView from 'dictionary.page.view';
 
 var AppRouter = Backbone.Router.extend({
@@ -22,7 +22,7 @@ var AppRouter = Backbone.Router.extend({
     },
 
     onWordsRoute: function () {
-        var view = new DictionaryPageView({model: new DictionaryPageModel}).render().$el;
+        var view = new DictionaryPageView({collection: new DictionaryPageableCollection}).render().$el;
         this.parentElement.append(view);
     },
 

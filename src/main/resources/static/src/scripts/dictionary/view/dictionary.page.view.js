@@ -1,7 +1,8 @@
 import BaseView from 'base.view';
 import DictionaryPageModel from 'dictionary.page.model';
 import WordView from 'word.view';
-import {} from 'dictionary.page.template';
+import DictionaryPaginationControlView from 'dictionary.pagination.control.view';
+import 'dictionary.page.template';
 
 var DictionaryPageView = BaseView.extend({
 
@@ -9,20 +10,18 @@ var DictionaryPageView = BaseView.extend({
 
     template: 'dictionary.page.template',
 
-    events: {
-        'click #first': 'firstPage',
-        'click #prev': 'prevPage',
-        'click #next': 'nextPage',
-        'click #last': 'lastPage'
-    },
-
     initialize: function () {
+        this.paginationControlView = new DictionaryPaginationControlView({model: this.model});
         this.listenTo(this.model.collection, 'update', this.render);
     },
 
     render: function () {
         BaseView.prototype.render.call(this);
         this.model.collection.each(this._createView, this);
+
+        var childSelector = this.$el.find('#paginationControls');
+        this.paginationControlView.setElement(childSelector).render();
+
         return this;
     },
 
@@ -33,22 +32,6 @@ var DictionaryPageView = BaseView.extend({
     _createView: function (model) {
         var modelView = new WordView({model: model});
         this.$('#table-content').append(modelView.render().el);
-    },
-
-    firstPage: function () {
-        this.model.firstPage();
-    },
-
-    prevPage: function () {
-        this.model.prevPage();
-    },
-
-    nextPage: function () {
-        this.model.nextPage();
-    },
-
-    lastPage: function () {
-        this.model.lastPage();
     }
 });
 

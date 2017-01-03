@@ -35,6 +35,7 @@ requirejs.config({
             'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
             'dictionary.pagination.control.view': 'scripts/dictionary/view/dictionary.pagination.control.view',
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template',
+            'dictionary.filter.control.template': 'templates/dictionary/dictionary.filter.control.template',
             'dictionary.pagination.control.template': 'templates/dictionary/dictionary.pagination.control.template',
 
             'word.model': 'scripts/word/model/word.model',

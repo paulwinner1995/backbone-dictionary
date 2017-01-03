@@ -33,6 +33,7 @@ requirejs.config({
 
             'dictionary.pageable.collection': 'scripts/dictionary/collection/dictionary.pageable.collection',
             'dictionary.page.view': 'scripts/dictionary/view/dictionary.page.view',
+            'dictionaty.filter.control.view': 'scripts/dictionary/view/dictionary.filter.control.view',
             'dictionary.pagination.control.view': 'scripts/dictionary/view/dictionary.pagination.control.view',
             'dictionary.page.template': 'templates/dictionary/dictionary.page.template',
             'dictionary.filter.control.template': 'templates/dictionary/dictionary.filter.control.template',

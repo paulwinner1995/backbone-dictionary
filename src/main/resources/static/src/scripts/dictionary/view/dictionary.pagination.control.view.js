@@ -1,5 +1,6 @@
 import BaseView from 'base.view';
 import DictionaryPageableCollection from 'dictionary.pageable.collection';
+import _ from 'lodash';
 import 'dictionary.pagination.control.template';
 
 var DictionaryPaginationControlView = BaseView.extend({
@@ -16,7 +17,9 @@ var DictionaryPaginationControlView = BaseView.extend({
     },
 
     _renderModel: function () {
-        return this.collection.state;
+        var state = _.clone(this.collection.state);
+        state.currentPage++;
+        return state;
     },
     
     onFirstPage: function () {

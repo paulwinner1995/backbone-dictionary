@@ -4,6 +4,7 @@ requirejs.config({
     paths: {
         'jquery': '/libs/jQuery/dist/jquery.min',
         'underscore': '/libs/underscore/underscore-min',
+        'lodash': '/libs/lodash/dist/lodash.min',
         'backbone': '/libs/backbone/backbone-min',
         'backbone.paginator': '/libs/backbone.paginator/lib/backbone.paginator.min',
         'dust': '/libs/dustjs-linkedin/dist/dust-full.min'
@@ -14,11 +15,7 @@ requirejs.config({
             exports: '_'
         },
         backbone: {
-            deps: [
-                'underscore',
-                'jquery'
-            ],
-            exports: 'Backbone'
+            deps: ['underscore', 'jquery']
         },
         dust: {
             exports: 'dust'

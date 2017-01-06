@@ -6,7 +6,16 @@ var DictionaryFilterControlView = BaseView.extend({
 
     template: 'dictionary.filter.control.template',
 
-    collection: DictionaryPageableCollection
+    collection: DictionaryPageableCollection,
+
+    events: {
+        'click  #submitSearch'  : 'onSearch',
+        'change #selectLanguage': 'onLanguageSelect'
+    },
+
+    onSearch: function () {},
+
+    onLanguageSelect: function () {}
 });
 
 export default DictionaryFilterControlView;

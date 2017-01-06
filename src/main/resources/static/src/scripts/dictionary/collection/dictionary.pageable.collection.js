@@ -26,8 +26,6 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
     constructor: function () {
         BackbonePageableCollection.prototype.constructor.apply(this);
 
-        this.state.language = 'RUS';
-
         this.fetch();
     },
 

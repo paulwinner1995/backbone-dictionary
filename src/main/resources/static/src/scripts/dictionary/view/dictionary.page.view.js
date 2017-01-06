@@ -33,10 +33,6 @@ var DictionaryPageView = BaseView.extend({
         return this;
     },
 
-    _renderModel: function () {
-        return this.collection.toJSON();
-    },
-
     _createView: function (model) {
         var modelView = new WordView({model: model});
         this.$('#table-content').append(modelView.render().el);

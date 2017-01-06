@@ -20,11 +20,13 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
         pageSize: 'size',
         // extra params
         lang: function () { return this.state.language; },
-        word: function () { return this.state.word; }
+        word: function () { return this.state.filter; }
     },
 
     constructor: function () {
         BackbonePageableCollection.prototype.constructor.apply(this);
+
+        this.on('pageable:state:change', function () { this.fetch() }, this);
 
         this.fetch();
     },
@@ -44,6 +46,22 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
 
     parseRecords: function (response) {
         return response.content;
+    },
+
+    setLanguage: function (language, options) {
+        this._setStateProperty('language', language, options);
+    },
+
+    setFilter: function (filter, options) {
+        this._setStateProperty('filter', filter, options);
+    },
+
+    _setStateProperty: function (name, value, options) {
+        options = options || {silent: false};
+
+        this.state[name] = value;
+
+        if (!options.silent) this.trigger('pageable:state:change', this.state);
     },
 
     _startFrom: function (totalRecords, pageSize, currentPage) {

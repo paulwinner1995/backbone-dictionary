@@ -13,9 +13,15 @@ var DictionaryFilterControlView = BaseView.extend({
         'change #selectLanguage': 'onLanguageSelect'
     },
 
-    onSearch: function () {},
+    onSearch: function () {
+        var filter = this.$el.find('input[name=filter]').val();
+        this.collection.setFilter(filter);
+    },
 
-    onLanguageSelect: function () {}
+    onLanguageSelect: function () {
+        var language = this.$el.find('#selectLanguage').val();
+        this.collection.setLanguage(language);
+    }
 });
 
 export default DictionaryFilterControlView;

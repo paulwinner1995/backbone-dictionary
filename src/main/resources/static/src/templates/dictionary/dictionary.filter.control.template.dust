@@ -1,11 +1,14 @@
 <div class="input-group">
     <div class="input-group-btn search-panel">
         <select class="btn btn-default dropdown-toggle" id="selectLanguage">
-            <option>English - Russian</option>
-            <option>Russian - English</option>
+            <option value="ENG">English - Russian</option>
+            <option value="RUS">Russian - English</option>
         </select>
     </div>
-    <input class="form-control" type="text" placeholder="Search for...">
+    <input class="form-control"
+           type="text"
+           name="filter"
+           placeholder="Search for...">
     <span class="input-group-btn">
         <button class="btn btn-primary" type="button" id="submitSearch">
             <span class="glyphicon glyphicon-search"></span>

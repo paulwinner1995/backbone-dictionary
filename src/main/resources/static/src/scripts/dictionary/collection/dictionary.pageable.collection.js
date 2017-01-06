@@ -26,7 +26,7 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
     constructor: function () {
         BackbonePageableCollection.prototype.constructor.apply(this);
 
-        this.on('pageable:state:change', function () { this.fetch() }, this);
+        this.on('pageable:state:change', this.fetch, this);
 
         this.fetch();
     },

@@ -13,6 +13,10 @@ var DictionaryFilterControlView = BaseView.extend({
         'change #selectLanguage': 'onLanguageSelect'
     },
 
+    _renderModel: function () {
+        return { selectedLanguage: this.collection.state.language }
+    },
+
     onSearch: function () {
         var filter = this.$el.find('input[name=filter]').val();
         this.collection.setFilter(filter);

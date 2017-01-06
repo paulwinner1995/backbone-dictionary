@@ -31,7 +31,7 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
         this.fetch();
     },
 
-    parseState: function (response) {
+    parseState: function (response, queryParams, state) {
         var from = this._startFrom(response.totalElements, response.size, response.number);
         var to = this._endWith(response.totalElements, from, response.numberOfElements);
 
@@ -39,6 +39,7 @@ var DictionaryPageableCollection = BackbonePageableCollection.extend({
             totalPages: response.totalPages,
             totalRecords: response.totalElements,
             // set extra param
+            language: state.language,
             from: from,
             to: to
         };

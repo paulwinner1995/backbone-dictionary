@@ -1,8 +1,8 @@
 <div class="input-group">
     <div class="input-group-btn search-panel">
         <select class="btn btn-default dropdown-toggle" id="selectLanguage">
-            <option value="ENG">English - Russian</option>
-            <option value="RUS">Russian - English</option>
+            <option value="ENG" {@eq key=selectedLanguage value="ENG"}selected{/eq}>English - Russian</option>
+            <option value="RUS" {@eq key=selectedLanguage value="RUS"}selected{/eq}>Russian - English</option>
         </select>
     </div>
     <input class="form-control"

@@ -26,7 +26,6 @@ requirejs.config({
         '*': {
             'app.main': 'scripts/app.main',
             'dust.renderer': 'scripts/common/renderer/dust.renderer',
-            'base.pageable.collection': 'scripts/common/collection/base.pageable.collection',
             'base.view': 'scripts/common/view/base.view',
 
             'main.router': 'scripts/router/main.router',

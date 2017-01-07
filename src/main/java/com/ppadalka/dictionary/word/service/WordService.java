@@ -5,6 +5,12 @@ import com.ppadalka.dictionary.word.view.WordView;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+/**
+ * @author Paul Padalka
+ * @version 1.0.0
+ *
+ * Service for CRUD operation with {@link com.ppadalka.dictionary.word.entity.Word word} entity
+ */
 public interface WordService {
 
     WordView create(WordView wordView);

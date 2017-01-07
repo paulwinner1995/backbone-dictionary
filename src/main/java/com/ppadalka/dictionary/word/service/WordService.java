@@ -7,11 +7,11 @@ import org.springframework.data.domain.Pageable;
 
 public interface WordService {
 
-    WordView findOne(Long id);
-
     WordView create(WordView wordView);
 
     WordView update(WordView wordView);
+
+    WordView findOne(Long id);
 
     Page<WordView> findAll(String word, Language language, Pageable pageable);
 }

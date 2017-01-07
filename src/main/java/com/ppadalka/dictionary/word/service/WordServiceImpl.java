@@ -79,13 +79,13 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public Page<WordView> findAll(String word, Language language, Pageable pageable) {
+    public Page<WordView> findAll(String filter, Language language, Pageable pageable) {
         ExampleMatcher matcher = ExampleMatcher.matching()
                 .withStringMatcher(CONTAINING)
                 .withIgnorePaths("id", "translations")
                 .withIgnoreCase("value");
 
-        Example<Word> example = Example.of(new Word(word, language), matcher);
+        Example<Word> example = Example.of(new Word(filter, language), matcher);
 
         return wordRepository.findAll(example, pageable)
                 .map(wordViewConverter);
